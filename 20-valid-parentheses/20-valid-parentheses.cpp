@@ -13,6 +13,7 @@ public:
                 else return false;
             }
         }
+        
         return stk.empty();
     }
 };
