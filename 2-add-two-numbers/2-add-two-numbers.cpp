@@ -22,5 +22,6 @@ public:
             t /= 10;
         }
         return dummy->next;// 题目要求返回真正的有效头结点"指针"
+        
     }
 };
