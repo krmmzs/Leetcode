@@ -48,6 +48,7 @@ public:
 
         if (list1) tail->next = list1;
         if (list2) tail->next = list2;
+        
         return dummy->next;
     }
 };
