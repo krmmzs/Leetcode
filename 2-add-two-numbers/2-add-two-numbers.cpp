@@ -21,7 +21,7 @@ public:
             cur = cur->next = new ListNode(t % 10);// 长等式会先执行右边也就是先造节点, 然后再cur往后移一位
             t /= 10;
         }
-        return dummy->next;// 题目要求返回真正的有效头结点"指针"
         
+        return dummy->next;// 题目要求返回真正的有效头结点"指针"
     }
 };
