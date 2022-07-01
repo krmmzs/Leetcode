@@ -20,6 +20,7 @@ public:
             f = f->next;
             if (s == f) return true;
         }
+        
         return false;
     }
 };
