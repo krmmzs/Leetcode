@@ -19,7 +19,6 @@ public:
             if (q) q = q->next;
             else q = headA;
         }
-        
         return p;
     }
 };
