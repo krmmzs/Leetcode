@@ -28,6 +28,7 @@ class Solution
                     if (cnt == m) res.push_back(j - (m - 1) * w);
                 }
             }
+            
             return res;
         }
 };
