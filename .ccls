@@ -1,2 +1,0 @@
-clang++
-%h %cpp -std=c++20
