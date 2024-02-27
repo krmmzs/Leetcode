@@ -1,5 +1,10 @@
 # Tips
 
+## STL
+
+- create Min stl priority_queue
+    - [How can I create Min stl priority_queue?](https://stackoverflow.com/questions/2439283/how-can-i-create-min-stl-priority-queue)
+
 ## Index
 
 - index伴随的循环**一定要有个边界**
