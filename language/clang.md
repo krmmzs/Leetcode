@@ -2,6 +2,39 @@
 
 因为熟悉了C++, 需要和C进行对照来准备科软机试
 
+## C动态分配
+
+写leetcode用c最大的难点是如何精准处理最小的空间
+
+---
+
+### 一些条件反射
+
+- malloc一个空间以后要条件反射给值初始化
+    - malloc一个链表以后要手动初始化val和next
+    - malloc一个?*, 最好初始化为NULL, 比如: 
+        ```c
+        // 分配一个struct TreeNode*的空间, 如何初始化为NULL
+        dfs(...) {
+            if (l > r) {
+                int res_sz = 0;
+                struct TreeNode** res = (struct TreeNode**)malloc(sizeof(struct TreeNode*));
+                res[res_sz ++] = NULL;
+                *returnSize = res_sz;
+                return res;
+            }
+            ...
+        }
+        ```
+
+### malloc(0)
+
+malloc(0)在处理树这样有空指针的时候非常安全, 根据[malloc man](https://pubs.opengroup.org/onlinepubs/009695399/functions/malloc.html)可分配一个null pointer但是又给可以直接被free接受并不会报错
+
+### remalloc(res, sizeof(...))
+
+在树的应用非常多, 能够极大地控制空间不会浪费
+
 ## 字符串
 
 - c++中的string s `s >= "1" && s <= "26`使用c的时候建议是不要用string的思路, 而是转而去转化为int, `(s[0] - '0') * 10 + s[1] - '0'就可以实现string to int`
@@ -65,4 +98,23 @@ dfs(...) {
         return;    
     }
 }
+```
+
+## c的树
+
+### 空节点
+
+比较特殊, 会有一个`TreeNode*`的空间, 但是赋值`NULL`(实际上通常是0, 这个看编译器)
+
+```c
+struct TreeNode** dfs(int l, int r, int* returnSize) {
+    if (l > r) {
+        int res_sz = 0;
+        struct TreeNode** res = (struct TreeNode**)malloc(sizeof(struct TreeNode*));
+        res[res_sz ++] = NULL;
+        *returnSize = res_sz;
+        return res;
+    }
+
+...
 ```
