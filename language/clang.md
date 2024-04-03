@@ -10,6 +10,9 @@
 
 ### 一些条件反射
 
+- `int* returnSize, int** returnColumnSizes`, 前者是返回的二维数组的行数, 后者是每行多少列的数组
+    - 其中需要注意`(*returnColumnSizes)[res_sz ++] = ?`必须要加上括号
+
 - malloc一个空间以后要条件反射给值初始化
     - malloc一个链表以后要手动初始化val和next
     - malloc一个?*, 最好初始化为NULL, 比如: 
